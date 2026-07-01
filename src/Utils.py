@@ -1,3 +1,5 @@
+#This module contains quality of life functions that are used in the other modules
+
 #Unbox is used to extract cards from a given hand
 def Unbox(ls):
   i = ls[0]
