@@ -15,3 +15,8 @@ def Find(i,j,k):
 
   return ni,nj,nk
 
+def Output(Win,Loss,Draw):
+  print("\nRESULT")
+  print("Probability of Winning: ",Win)
+  print("Probability of Drawing: ",Draw)
+  print("Probability of Losing: ",Loss)
