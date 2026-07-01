@@ -1,7 +1,7 @@
 #Calc module is used to calculate probabilities for various cases,
 
-from src.utils import Unbox
-from src.utils import Find
+from src.Utils import Unbox
+from src.Utils import Find
 
 #When all cards of hand are same
 def CalcTriple(ls):
