@@ -1,10 +1,4 @@
 #Calc module is used to calculate probabilities for various cases,
-def Find(i,j,k):
-  ni = CardCount[i]
-  nj = CardCount[j]
-  nk = CardCount[k]
-
-  return ni,nj,nk
 
 #When all cards of hand are same
 def CalcTriple(ls):
