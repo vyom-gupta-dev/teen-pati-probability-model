@@ -1,3 +1,5 @@
+#This module is used for storing the procedures for computing the winning, loosing and drawing probabilities for different hands
+
 def Triple_Probability(TripleVal):
   for row in data:
     global Win,Draw,Loss
