@@ -1,7 +1,7 @@
 #This module contains those functions that are necessary to determine the probability of attaining a Colour (All 3 cards have the same suit)
 
-from src.utils import Unbox
-from src.utils import Find
+from src.Utils import Unbox
+from src.Utils import Find
 
 #Eliminates those suit colours which are not possible because of our hand
 def EdgeCorrection(Hand,SuitHand,row):
