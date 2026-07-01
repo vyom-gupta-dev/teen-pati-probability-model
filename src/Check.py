@@ -1,11 +1,6 @@
 #Check module to check different hands
-def Unbox(ls):
-  i = ls[0]
-  j = ls[1]
-  k = ls[2]
 
-  return i,j,k
-
+#Used to check whether the hand is a triple (222, 333etc.)
 def CheckTriple(ls):
   i,j,k = Unbox(ls)
 
@@ -14,6 +9,7 @@ def CheckTriple(ls):
   else:
     return False
 
+#Used to check whether a hand is a sequence (234,345...)
 def CheckSeq(ls):
   i,j,k = Unbox(ls)
 
@@ -22,6 +18,7 @@ def CheckSeq(ls):
   else:
     return False
 
+#Checks whether the hand is a special sequence (A23)
 def CheckSeqAce(ls):
   i,j,k = Unbox(ls)
 
@@ -30,6 +27,7 @@ def CheckSeqAce(ls):
   else:
     return False
 
+#Checks whether a hand is a particular kind of pair(552, 775...)
 def CheckPairHigh(ls):
   i,j,k = Unbox(ls)
 
@@ -38,6 +36,7 @@ def CheckPairHigh(ls):
   else:
     return False
 
+#Checks whether a hand is particular kind of pair(522,755...)
 def CheckPairLow(ls):
   i,j,k = Unbox(ls)
 
@@ -46,6 +45,7 @@ def CheckPairLow(ls):
   else:
     return False
 
+#Checks whether all the cards are different (235, 568...)
 def CheckNonPair(ls):
   i,j,k = Unbox(ls)
 
@@ -54,6 +54,7 @@ def CheckNonPair(ls):
   else:
     return False
 
+#Checks whether all the cards have the same suits (Called as a Colour)
 def CheckSuit(ls):
   s1,s2,s3 = Unbox(ls)
   if(s1==s2 and s2 ==s3):
