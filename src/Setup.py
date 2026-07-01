@@ -138,9 +138,3 @@ def Confirm():
   else:
     print("ERROR! Restarting...\n")
     return False
-
-def Output(Win,Loss,Draw):
-  print("\nRESULT")
-  print("Probability of Winning: ",Win)
-  print("Probability of Drawing: ",Draw)
-  print("Probability of Losing: ",Loss)
