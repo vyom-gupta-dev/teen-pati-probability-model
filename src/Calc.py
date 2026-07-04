@@ -1,5 +1,5 @@
 from src.Utils import *
-from src.Checl import *
+from src.Check import *
 
 #Calc module is used to calculate probabilities for various cases,
 def Find(i,j,k):
