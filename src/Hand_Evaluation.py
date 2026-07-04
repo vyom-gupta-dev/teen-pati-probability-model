@@ -104,7 +104,7 @@ def Pair_Probability(PairVal,Kicker,Hand,SuitHand):
   Win = 1 - (Loss + Draw)
   Output(Win,Loss,Draw)
 
-def NonPair_Probability(row,Colour,Hand,SuitHand):
+def NonPair_Probability(Colour,Hand,SuitHand):
   global Loss,Win,Draw
 
   High,Mid,Low = Unbox(Hand)
