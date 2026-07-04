@@ -1,8 +1,8 @@
 #This module is used for storing the procedures for computing the winning, loosing and drawing probabilities for different hands
-from Utils import *
-from Suit_Probability import *
-from Check import *
-from Calc import *
+from src.Utils import *
+from src.Suit_Probability import *
+from src.Check import *
+from src.Calc import *
 
 def Triple_Probability(TripleVal):
   for row in data:
