@@ -32,3 +32,8 @@ CardCount = {
     3 : 4,
     2 : 4
 }
+#Variables that are used later in the main program
+Total = 49 #Number of cards after updation
+Win = 0    #Winning Probability
+Loss = 0    #Losing Probability
+Draw = 0    #Drawing Probability
