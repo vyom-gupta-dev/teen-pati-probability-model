@@ -1,4 +1,4 @@
-from Setup import *
+from src.Setup import *
 
 print("RUBRIC - VALUE INPUTTING")
 print("Press A for Ace")
