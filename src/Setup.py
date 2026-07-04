@@ -1,9 +1,22 @@
-#This module contains those functions that input the cards, update the deck and classify the hand
+from src.Utils import *
+from src.Check import *
+from src.Hand_Evaluation import *
 
-import src.Utils
-import src.Data
-import src.Hand_Evaluation
+#A Separate Function to Confirm User Input
+def Confirm():
+  chr = input("\nCONFIRM? (Y/N)").upper()
 
+  if(chr == 'Y'):
+    print("Proceeding...\n")
+    return True
+  elif(chr == 'N'):
+    print("Restarting...\n")
+    return False
+  else:
+    print("ERROR! Restarting...\n")
+    return False
+
+#This is where the program begins
 def Start():
   #Inputting required information on the hand
   Card1 = input("Enter first Card: ").upper()
@@ -20,8 +33,16 @@ def Start():
     Start()
     return
 
+  Hand = [Card1,Card2,Card3]
+  SuitHand = [Suit1,Suit2,Suit3]
 
-  #Finding Values of the Cards
+  Get_Hands(Hand,SuitHand)
+
+#Finding Values of the Cards
+def Get_Hands(Hand,SuitHand):
+  Card1,Card2,Card3 = Unbox(Hand)
+  Suit1,Suit2,Suit3 = Unbox(SuitHand)
+
   if(Card1.isdigit() == True):
     Value1 = int(Card1)
   else:
@@ -37,29 +58,20 @@ def Start():
   else:
     Value3 = CardValues[Card3]
 
-  #Obtains Highest, Middle Most, Lowest Values
-  ls = [Value1,Value2,Value3]
-  ls.sort()
-
-  High = ls[2]
-  Mid = ls[1]
-  Low = ls[0]
-
+  #Obtains Hand
+  Hand = [Value1,Value2,Value3]
+  #Sorts Hand
+  Hand.sort(reverse = True)
 
   print("\nSUMMARY:")
   print("1st Card:",Card1,"|Suit:",Suit1,"|Value:",Value1)
   print("2nd Card:",Card2,"|Suit:",Suit2,"|Value:",Value2)
   print("3rd Card:",Card3,"|Suit:",Suit3,"|Value:",Value3,"\n")
 
-  print("Highest Value: ",High)
-  print("Middle Value: ",Mid)
-  print("Lowest Value: ",Low,"\n")
-
-  Hand = [High,Mid,Low]
-  SuitHand = [Suit1,Suit2,Suit3]
-
   State(Hand)
   Compare(Hand,SuitHand)
+
+  return Hand
 
 #Updates the Deck
 def State(ls):
@@ -69,8 +81,6 @@ def State(ls):
   CardCount[High] -= 1
   CardCount[Mid] -= 1
   CardCount[Low] -= 1
-
-  print(CardCount,"\n")
 
 #Classifies what kind of Hand it is
 def Compare(Hand,SuitHand):
@@ -83,7 +93,7 @@ def Compare(Hand,SuitHand):
   PairVal = 0
   Kicker = 0
 
-  Colour =
+  Colour = CheckSuit(SuitHand)
 
   print("TYPE OF HAND")
   if(CheckTriple(Hand)):
@@ -95,47 +105,36 @@ def Compare(Hand,SuitHand):
     print("-> Sequence with Value",LowVal)
     print("-> Flush:",Colour)
     SeqVal = LowVal
-
     Sequence_Probability(SeqVal,Colour,Hand,SuitHand)
+
   elif(CheckSeqAce(Hand)):
     print("-> Sequence with Value 1")
     print("-> Flush:",Colour)
     SeqVal = 1
+    Sequence_Probability(SeqVal,Colour,Hand,SuitHand)
 
-    Sequence_Probability(SeqVal,Colour)
   elif(CheckPairLow(Hand)):
     print("-> Pair value is",LowVal)
     print("-> Kicker value ",HighVal)
-
     PairVal = LowVal
     Kicker = HighVal
-
     Pair_Probability(PairVal,Kicker,Hand,SuitHand)
 
   elif(CheckPairHigh(Hand)):
     print("-> Pair value is",HighVal)
     print("-> Kicker value ",LowVal)
-
     PairVal = HighVal
     Kicker = LowVal
-
     Pair_Probability(PairVal,Kicker,Hand,SuitHand)
 
-  else:
+  elif(CheckNonPair(Hand)):
     print("-> Non-Pair")
     print("-> Colour? :", Colour)
-    NonPair_Probability(row,Colour,Hand,SuitHand)
+    NonPair_Probability(Colour,Hand,SuitHand)
 
-#A Separate Function to Confirm User Input
-def Confirm():
-  chr = input("\nCONFIRM? (Y/N)").upper()
-
-  if(chr == 'Y'):
-    print("Proceeding...\n")
-    return True
-  elif(chr == 'N'):
-    print("Restarting...\n")
-    return False
   else:
-    print("ERROR! Restarting...\n")
-    return False
+    print("DETECTING ERROR!")
+    print("ENDING PROGRAM...")
+    exit()
+    
+Start()
