@@ -1,4 +1,5 @@
 from src.Utils import *
+from src.Checl import *
 
 #Calc module is used to calculate probabilities for various cases,
 def Find(i,j,k):
@@ -44,3 +45,17 @@ def CalcDiff(ls):
 
   return Probability
 
+#Master Function
+def P(hand):
+
+  if CheckTriple(hand):
+      return CalcTriple(hand)
+
+  elif CheckPairHigh(hand):
+      return CalcPairHigh(hand)
+
+  elif CheckPairLow(hand):
+      return CalcPairLow(hand)
+
+  elif CheckNonPair(hand):
+        return CalcDiff(hand)
