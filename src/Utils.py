@@ -1,5 +1,5 @@
 #This module contains quality of life functions that are used in the other modules
-from src.Data import *
+from src.data import *
 #Unbox is used to extract cards from a given hand
 def Unbox(ls):
   i = ls[0]
@@ -14,7 +14,7 @@ def Find(i,j,k):
   nk = CardCount[k]
 
   return ni,nj,nk
-
+#Output is used to display the winning, losing and drawing probabilities at the end of the program
 def Output(Win,Loss,Draw):
   print("\nRESULT")
   print("Probability of Winning: ",Win)
