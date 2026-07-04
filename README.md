@@ -32,15 +32,17 @@ Thus, this project's main goal is to be a probability model designed to find the
 *Note: This section contains the basic axioms of probability and notation that is used in the algorithm, if you are familiar with them, then it is suggestable for you to skip this section*
 
 ## Notation:
+
+- Probability of any event = Instances of that Event/ Total Instances
 - P(A) Denotes the probability of an event A occuring
 - P(A') Denotes the probability of an event A ***NOT*** occuring
 - P(A*B) Denotes the probability that both events A and B occur ***together***
 - P(A|B) Denotes the probability of an event A occuring, **While B has already occured**
 - U denotes the Universal Set, P(U) = 1, **Always**
   
-## Theorems of Probability:
+## Mathematical Fundamentals:
 This project is based on the following few theorems and axioms of probability theory:
-- **Bayes Theorem** - It states that to compute the condiitonal probability,
+- **Conditional Probability** - It states that to compute the condiitonal probability,
 
 **P(A|B) = P(A*B) / P(B)**
 
@@ -63,3 +65,21 @@ P(A') = 1 - P(A) [P(A*A') = 0]
 For an Independent event,
 
 **P(A*B) = P(A) * P(B)**
+
+## Ideas Used
+
+Based on these mathematical principles, the main algorithms behind this project have been made:
+
+- **Card Counting** - We keep track of all the available cards in the card which allows us to **calculate the probability of obtaining that**
+  
+-  **Formatted Data** - We store all the possible cards (**Hands**) that our opponent can possibly have, however each possibility must be **distinct** and each possibility is in the format of: **[Highest,Middle,Lowest]**
+  
+-  **Use of Mutually Exclusive Events** - Since a Win, a Loss and a Draw are all **Mutually exclusive** we only must compute any two of them and with that knowledge we can calculate the remaining data,
+
+For exaple: P(Loss) = 1 - [P(Win) + P(Draw)] OR P(Win) = 1 - [P(Loss) + P(Draw)]
+
+- **Suits determined by Conditional Probability** - Instead of considering each distinct hand in the different possible suits each card can posses, we can instead use Bayes Theorem to skip this data,
+
+This can be simply done as,
+
+P(Hand) = P(Hand|Suit) * P(Suit)
