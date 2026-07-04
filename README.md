@@ -70,15 +70,15 @@ For an Independent event,
 
 Based on these mathematical principles, the main algorithms behind this project have been made:
 
-- **Card Counting** - We keep track of all the available cards in the card which allows us to **calculate the probability of obtaining that**
+- **Card Counting** - The remaining composition of the deck is tracked after the player's known cards are removed. Every probability calculation is then performed on this updated deck, ensuring that all probabilities are conditional on the information already known.
   
--  **Formatted Data** - We store all the possible cards (**Hands**) that our opponent can possibly have, however each possibility must be **distinct** and each possibility is in the format of: **[Highest,Middle,Lowest]**
+-  **Canonical Hand Representation** - We store all the possible cards (**Hands**) that our opponent can possibly have, however each possibility must be **distinct** and each possibility is in the format of: **[Highest,Middle,Lowest]**
   
 -  **Use of Mutually Exclusive Events** - Since a Win, a Loss and a Draw are all **Mutually exclusive** we only must compute any two of them and with that knowledge we can calculate the remaining data,
 
 For exaple: P(Loss) = 1 - [P(Win) + P(Draw)] OR P(Win) = 1 - [P(Loss) + P(Draw)]
 
-- **Suits determined by Conditional Probability** - Instead of considering each distinct hand in the different possible suits each card can posses, we can instead use Bayes Theorem to skip this data,
+- **Suits determined by Conditional Probability** - Rather than enumerating every possible suit assignment for every hand, the probability is decomposed into the probability of obtaining the required suit configuration and the probability of obtaining the hand under that configuration,
 
 This can be simply done as,
 
