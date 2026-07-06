@@ -29,8 +29,10 @@ However with a systematic procedure to the computation we can work through numer
 Thus, this project's main goal is to be a probability model designed to find the probability of winning, tying and losing in a round between 2 players by optimizing this calculation based on the *rules of the game* and the *maths behind the probability*.
 
 # Methodology
+<details>
+<summary>
 *Note: This section contains the basic axioms of probability and notation that is used in the algorithm, if you are familiar with them, then it is suggestable for you to skip this section*
-
+</summary>
 ## Notation:
 
 - Probability of any event = Instances of that Event/ Total Instances
@@ -65,7 +67,7 @@ P(A') = 1 - P(A) [P(A*A') = 0]
 For an Independent event,
 
 **P(A*B) = P(A) * P(B)**
-
+</details>
 ## Ideas Used
 
 Based on these mathematical principles, the main algorithms behind this project have been made:
@@ -83,3 +85,55 @@ For exaple: P(Loss) = 1 - [P(Win) + P(Draw)] OR P(Win) = 1 - [P(Loss) + P(Draw)]
 This can be simply done as,
 
 P(Hand) = P(Hand|Suit) * P(Suit)
+
+# Algorithm and Architecture
+
+## Algorithm at a glance
+
+The algorithm of the entire program follows this flow sequentially;
+- First, the user inputs their cards
+- Secondly, the program updates the deck and removes the users cards
+- Then, the program classifies what type of hand the user has (Whether it is a flush or a pair or any other combination)
+- After this, the program evaluates the hand based on different algorithms for each type of hand
+- Before commencing the calculation, the program displays the users hand, what is has classified as and confirms the user's input before proceeding
+---
+<details> <summary> This part contains what each of the algorithms for each type of hand does </summary>
+- If the user has a trio/triple, then the program compares it only with other trios/triples and calculated the losing probability
+- If the user has a flush (colour = sequence) it compares it only with trios/triples or other flushes and calculates losing and drawing probability
+- Similarly if the user has just a sequence, it compares it with trios/triples, higher sequences and lower flushes that beat or draw with the hand
+- If the user has a colour (3 cards of same suit) it compares it with trios/triples + sequences + other colours
+- For a hand which only has a pair, the program compares it with trios/triples + sequences + other pairs + colours
+- Lastly, if the user has any other hand (also called as a Non-Pair hand) it compares it only with other similiar Non-Pair hands and calculates **winning** and drawing probabilities
+</details>
+---
+- At the end, the remaining probability (be it winning or drawing) can be easily determined since each winning, drawing and losing are mutually exclusive
+- These probabilities are then displayed and from there, the user can further terminate the program.
+
+## Functions Used
+<details>
+<summary> This section contains all the functions used in the program </summary>
+
+The main functions that are used in this program are as follows:
+- Start() - This function inputs the users hand and the suits of those cards and stores it as Hand and SuitHand respectively,
+- Get_Hand(Hand, SuitHand) - This function obtains the users hand in a numeric format and sorts it, for example, if the user inputs [K,Q,A] (K is King, Q is Queen, A is Ace) the funciton sorts the User's hand as [14,13,12] (The numeric values of those cards in my program)
+- State(ls) - This function updates the state of the deck and removes the user's cards from it
+- Compare(Hand,SuitHand) - This function obtains what type of Hand the user has (triple,sequence or colour etc.) and then displays it, then, it calls the appropriate evaluating function for each type of hand
+- Triple_Probability(TripleVal) - This function calculates probability for trio/triple hands
+- Sequence_Probability(SeqVal,Colour,Hand,SuitHand) - This function calculates probability for flushes and normal sequences
+- Pair_Probability(PairVal,Kicker,Hand,SuitHand) - This function calculates probability for pairs
+- NonPair_Probability(Colour,Hand,SuitHand) - This function calculates probability for colours and non pairs
+
+Other than these main functions there are various Utility functions that have been used,
+- Output(Win,Loss,Draw) - This function outputs the winning, loosing and drawing probabilities, it has been made to avoid the repetition of the same print statements after each evaluator function is done processing
+- Unbox(ls) - As the name suggests it unboxes a hand to give the respective cards which are there in that hand, this is used for finding the users cards from the users hands or for obtaining the different cards in different possible hands our opponent may have
+- Find(i,j,k) - This function is used to find the number of occurences of each card, i,j,k in the deck
+
+The following modules also have been used to improve code readability:
+- Check Module - This includes functions like CheckTriple(ls), CheckSeq(ls), CheckPairHigh(ls) and CheckPairLow(ls) which are used to find whether the passed hand are either a triple or sequence or a particular kind of pair (so it can also check what card in i,j,k is a kicker)
+- Calc Module - This incldues functions like CalcTriple(ls), CalcPairLow(ls) and CalcPairHigh(ls) and CalcDiff(ls) which are used to calculate the probability of attaining that particular hand
+- P(Hand) is a wrapper class that combines the functions of Check Module and Calc Module so that given whatever hand, it shall classify what type it is and then calculate probability for it, so the user can use it blindly the calculate the probability of attaining the hand
+
+For finding the Suit Probability, separate functions have been used such as:
+- ColourWeight(Hand,SuitHand,Row) - This function finds the probability of a hand being suited or having the same suits (colour)
+- EdgeCorrection(Hand,SuitHand,row) - This function handles the edge cases that are brought upon by the removal of our cards (certain colours become impossible to obtain, this function is explained more in the docs folder)
+</details>
