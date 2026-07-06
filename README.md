@@ -144,7 +144,11 @@ The following modules also have been used to improve code readability:
 - Calc Module - This incldues functions like CalcTriple(ls), CalcPairLow(ls) and CalcPairHigh(ls) and CalcDiff(ls) which are used to calculate the probability of attaining that particular hand
 - P(Hand) is a wrapper class that combines the functions of Check Module and Calc Module so that given whatever hand, it shall classify what type it is and then calculate probability for it, so the user can use it blindly the calculate the probability of attaining the hand
 
+
 For finding the Suit Probability, separate functions have been used such as:
 - ColourWeight(Hand,SuitHand,Row) - This function finds the probability of a hand being suited or having the same suits (colour)
 - EdgeCorrection(Hand,SuitHand,row) - This function handles the edge cases that are brought upon by the removal of our cards (certain colours become impossible to obtain, this function is explained more in the docs folder)
 </details>
+
+## Example
+
