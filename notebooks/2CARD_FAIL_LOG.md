@@ -34,6 +34,6 @@ Loss = 1 - (Win+Draw)
 
 Note: For 3 cards, imagine it as a tetrahedron of a cube (1/6) of it and proceed.
 
-*Note: The reason this was a failure was because it went astray to the problem, rather than calculating the probability, I had just counted the cases or hand which could beat my hand*
-*The uses of matrices to represent different canonical hands also would be a practice that I would not continue for more complex problems like those including 3 cards since it becomes very hard to think and directly get the result*
-*However, this development did finally allow me to settle on a proper problem statement for the project*
+- *Note: The reason this was a failure was because it went astray to the problem, rather than calculating the probability, I had just counted the cases or hand which could beat my hand*
+- *The uses of matrices to represent different canonical hands also would be a practice that I would not continue for more complex problems like those including 3 cards since it becomes very hard to think and directly get the result*
+- *However, this development did finally allow me to settle on a proper problem statement for the project*
