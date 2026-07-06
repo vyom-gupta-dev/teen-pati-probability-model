@@ -31,8 +31,11 @@ Thus, this project's main goal is to be a probability model designed to find the
 # Methodology
 <details>
 <summary>
+  
 *Note: This section contains the basic axioms of probability and notation that is used in the algorithm, if you are familiar with them, then it is suggestable for you to skip this section*
+
 </summary>
+  
 ## Notation:
 
 - Probability of any event = Instances of that Event/ Total Instances
@@ -68,7 +71,9 @@ For an Independent event,
 
 **P(A*B) = P(A) * P(B)**
 </details>
+
 ## Ideas Used
+<details>
 
 Based on these mathematical principles, the main algorithms behind this project have been made:
 
@@ -85,6 +90,10 @@ For exaple: P(Loss) = 1 - [P(Win) + P(Draw)] OR P(Win) = 1 - [P(Loss) + P(Draw)]
 This can be simply done as,
 
 P(Hand) = P(Hand|Suit) * P(Suit)
+
+*Note: For more information on the use of these ideas and their connection to the mathematics, refer to the docs folder*
+
+</details>
 
 # Algorithm and Architecture
 
@@ -105,7 +114,9 @@ The algorithm of the entire program follows this flow sequentially;
 - For a hand which only has a pair, the program compares it with trios/triples + sequences + other pairs + colours
 - Lastly, if the user has any other hand (also called as a Non-Pair hand) it compares it only with other similiar Non-Pair hands and calculates **winning** and drawing probabilities
 </details>
+
 ---
+
 - At the end, the remaining probability (be it winning or drawing) can be easily determined since each winning, drawing and losing are mutually exclusive
 - These probabilities are then displayed and from there, the user can further terminate the program.
 
