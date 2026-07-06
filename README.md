@@ -33,6 +33,41 @@ However with a systematic procedure to the computation we can work through numer
 
 Thus, this project's main goal is to be a probability model designed to find the probability of winning, tying and losing in a round between 2 players by optimizing this calculation based on the *rules of the game* and the *maths behind the probability*.
 
+# Formulation
+
+## Problem Statement
+
+Problem Statement:
+
+**FIRST**, You are given your cards,
+
+**THEN**, your opponent gets their cards,
+
+Following the rules of Teen Pati-
+
+A) Find the pairs that can beat or lose to your hand,
+
+B) Additionally find the probability of obtaining those cards
+
+*Note: The Cards you posses are not replaced.*
+
+## Situation
+
+Situation:
+- 52 Cards
+- 13 - Spade
+- 13 - Club
+- 13 - Heart
+- 13 - Diamond
+- Aces high, 2's low,
+
+- ACE (A) - 14
+- KING (K) - 13
+- QUEEN (Q) - 12
+- JACK (J) - 11
+- 2 - 10 = Respective Value
+
+
 # Methodology
 <details>
 <summary>
