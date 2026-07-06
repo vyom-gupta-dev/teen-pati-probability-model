@@ -152,4 +152,4 @@ For finding the Suit Probability, separate functions have been used such as:
 
 ## Example
 
-![Sample Output](main/images/Examples.png)
+![Sample Output](images/Example.png)
