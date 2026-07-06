@@ -7,6 +7,9 @@ This repository contains an analytical probability engine that computes the prob
 Teen Patti is a card game that is commonly played in India where each player receives three cards or Teen Patti and based on the strength of their hand they decide how much money they decide to bet. Whoever has the highest hand wins. 
 
 ## Strength of Hands in Teen Patti:
+
+<details>
+
 1. Trail/Trio (Three of a Kind): Three cards of the same rank; Aces are highest
 
 2. Pure Sequence (Straight Flush): Three consecutive cards of the same suit. Example: A-K-Q of diamonds ****
@@ -18,6 +21,8 @@ Teen Patti is a card game that is commonly played in India where each player rec
 5. Pair (Two of a Kind): Two cards of the same rank; compare the pair first, then the kicker
 
 6. High Card: None of the above; compare highest → middle → lowest card
+
+</details>
 
 ## Goal:
 This project was designed as a summer project into applying probability theory to the game of Teen Patti.
@@ -121,20 +126,37 @@ The algorithm of the entire program follows this flow sequentially;
 - These probabilities are then displayed and from there, the user can further terminate the program.
 
 ## Functions Used
-<details>
-<summary> This section contains all the functions used in the program </summary>
+ This section contains all the functions used in the program 
 
-The main functions that are used in this program are as follows:
+<details>
+<summary>
+Main Functions
+</summary>
+
 - Start() - This function inputs the users hand and the suits of those cards and stores it as Hand and SuitHand respectively,
 - Get_Hand(Hand, SuitHand) - This function obtains the users hand in a numeric format and sorts it, for example, if the user inputs [K,Q,A] (K is King, Q is Queen, A is Ace) the funciton sorts the User's hand as [14,13,12] (The numeric values of those cards in my program)
 - State(ls) - This function updates the state of the deck and removes the user's cards from it
 - Compare(Hand,SuitHand) - This function obtains what type of Hand the user has (triple,sequence or colour etc.) and then displays it, then, it calls the appropriate evaluating function for each type of hand
+
+</details>
+
+<details>
+<summary>
+Evaluator Functions
+</summary>
+  
 - Triple_Probability(TripleVal) - This function calculates probability for trio/triple hands
 - Sequence_Probability(SeqVal,Colour,Hand,SuitHand) - This function calculates probability for flushes and normal sequences
 - Pair_Probability(PairVal,Kicker,Hand,SuitHand) - This function calculates probability for pairs
 - NonPair_Probability(Colour,Hand,SuitHand) - This function calculates probability for colours and non pairs
 
-Other than these main functions there are various Utility functions that have been used,
+</details>
+
+<details>
+<summary>
+Utility functions
+</summary>
+
 - Output(Win,Loss,Draw) - This function outputs the winning, loosing and drawing probabilities, it has been made to avoid the repetition of the same print statements after each evaluator function is done processing
 - Unbox(ls) - As the name suggests it unboxes a hand to give the respective cards which are there in that hand, this is used for finding the users cards from the users hands or for obtaining the different cards in different possible hands our opponent may have
 - Find(i,j,k) - This function is used to find the number of occurences of each card, i,j,k in the deck
@@ -144,10 +166,16 @@ The following modules also have been used to improve code readability:
 - Calc Module - This incldues functions like CalcTriple(ls), CalcPairLow(ls) and CalcPairHigh(ls) and CalcDiff(ls) which are used to calculate the probability of attaining that particular hand
 - P(Hand) is a wrapper class that combines the functions of Check Module and Calc Module so that given whatever hand, it shall classify what type it is and then calculate probability for it, so the user can use it blindly the calculate the probability of attaining the hand
 
+</details>
 
-For finding the Suit Probability, separate functions have been used such as:
+<details>
+<summary>
+Suit related functions
+</summary>
+
 - ColourWeight(Hand,SuitHand,Row) - This function finds the probability of a hand being suited or having the same suits (colour)
 - EdgeCorrection(Hand,SuitHand,row) - This function handles the edge cases that are brought upon by the removal of our cards (certain colours become impossible to obtain, this function is explained more in the docs folder)
+
 </details>
 
 ## Example
