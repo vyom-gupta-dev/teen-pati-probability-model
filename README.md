@@ -4,7 +4,7 @@ An analytical probability engine that has been designed to calculate the probabi
 This repository contains an analytical probability engine that computes the probabilities of winning, losing, or drawing in a two-player game of Teen Patti using combinatorics and conditional probability.
 
 ## What is Teen Patti:
-Teen Patti is a card game that is commonly played in India where each player receives three cards or Teen Patti and based on the strength of their hand they decide how much money they decide to bet. Whoever has the highest hand wins. 
+Teen Patti is a card game that is commonly played in India where each player receives three cards or Teen Patti and based on the strength of their hand they decide how much money they bet. Whoever has the highest hand wins. 
 
 ## Strength of Hands in Teen Patti:
 
@@ -45,7 +45,7 @@ Problem Statement:
 
 Following the rules of Teen Pati-
 
-A) Find the pairs that can beat or lose to your hand,
+A) Find the hands that can beat or lose to your hand,
 
 B) Additionally find the probability of obtaining those cards
 
