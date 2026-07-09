@@ -1,3 +1,5 @@
+#Execute this file to run the program
+
 from src.Setup import *
 
 print("RUBRIC - VALUE INPUTTING")
