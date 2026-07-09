@@ -61,7 +61,7 @@
 
   For reference, I have pasted screenshots of the code for you to crossreference,
 
-  ![Data](teen-pati-probability-model/images/Data.png)
+  ![Data](../images/Data.png)
 
   For reference, what each variable means here is as follows,
 
