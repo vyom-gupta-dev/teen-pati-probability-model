@@ -81,6 +81,10 @@
 
   This for loop compares the sorted opponent hand and our hand and stores the position where OUR cards match
 
+  ![End](images/free.png)
+
+  This code finds what suits get blocked by our hand and returns the free suits, <br>
+  4 represents the total number of seats and len(ls_SuitHand) represents the number of blocked suits
   
 </details>
 
