@@ -83,9 +83,15 @@
 
   ![End](../images/free.png)
 
-  This code finds what suits get blocked by our hand and returns the free suits, <br>
+  This code finds what distinct suits get blocked by our hand and returns the free suits, <br>
   4 represents the total number of seats and len(ls_SuitHand) represents the number of blocked suits
   
 </details>
 
+## Example
 
+![Example](../images/case.png)
+
+This snippet shows what the program outputs, 
+
+Clearly, it finds all the position where the cards match, then it finds out what are the blocked cards.
