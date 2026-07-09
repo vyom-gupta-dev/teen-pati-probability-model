@@ -73,15 +73,15 @@
 
   ls_SuitHand - This stores what colours have been blocked.
 
-  ![Distinct Row](teen-pati-probability-model/images/duplicate.png)
+  ![Distinct Row](../images/duplicate.png)
 
   This for loop runs through the opponents Hands and finds the distinct cards that are present in the opponents hands, (this allows us the comparision process that occurs later to proceed more smoothly)
 
-  ![Find](teen-pati-probability-model/images/match.png)
+  ![Find](../images/match.png)
 
   This for loop compares the sorted opponent hand and our hand and stores the position where OUR cards match
 
-  ![End](teen-pati-probability-model/images/free.png)
+  ![End](../images/free.png)
 
   This code finds what suits get blocked by our hand and returns the free suits, <br>
   4 represents the total number of seats and len(ls_SuitHand) represents the number of blocked suits
