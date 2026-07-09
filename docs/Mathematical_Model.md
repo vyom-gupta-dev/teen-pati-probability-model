@@ -150,21 +150,28 @@ For an Independent event,
     We can get: QJ 
     OR: JQ
 
-    Total possibilities = 2! = 2.
+    Total possibilities = 2! = 2. (2 position for the first place, then one left for the last = 2*1)
     See topic on Arrangements, as to why this is the case.
 
+    Here 5! = 5*4*3*2*1 
+         4! = 4*3*2*1
+         and so on,
+
+  *Note: For r objects where some objects are identical, the number of distinct arrangements is obtained by dividing r! by the factorial of the number of identical objects. For this project, since only one card value may repeat, this simplifies to r!/x!.*
+
+  
   Thus, let us say for three cards,
 
     Hand = [A,A,A]
 
     Probability of finding KQJ is,
-    Net = (3!) * P(K) * P(Q|K) * P(J|(Q|K))
+    Net = (3!) * P(K) * P(Q|K) * P(J|(Q|K)) [Arrangement of 3 distinct objects = 3!]
 
     Or for KKA,
-    Net = (3!/2!) * P(K) * P(K|K) * P(A|(K|K))
+    Net = (3!/2!) * P(K) * P(K|K) * P(A|(K|K)) [3 objects are arranged where 2 are alike]
 
     And for JJJ,
-    Net = (3!/3!) * P(J) * P(J|J) * P(J|(J|J))
+    Net = (3!/3!) * P(J) * P(J|J) * P(J|(J|J)) [3 objects where 3 are alike
 
   Thus, by the use of Arrangements and Conditional Probability, we have been able to derive the formulaes for the various Hand types that are possible (Excluding Suit). <br>
   These formulas have been exactly applied in the Calc.py module in the src folder for exactly the same folder.
