@@ -76,6 +76,8 @@ For an Independent event,
 **P(A*B) = P(A) * P(B)**
 </details>
 
+---
+
 ## Explanation
 
 ### Hand Probability - 
@@ -248,3 +250,27 @@ For an Independent event,
 </details>
 
 ---
+
+## Limitations
+
+There are, clearly, many limitations to this project:
+
+- **Order of Distribution**
+
+  This model assumes that our cards are dealt before the opponent's cards. Consequently, our cards are first removed from the deck, altering the remaining card     distribution available to the opponent. If the dealing order changes, the blocking effect changes as well, and the probability model derived in this project is   no longer valid without modification.
+
+- **Multiplayer**
+
+  This model is limited to two players. Extending it to multiple opponents substantially increases the number of possible outcomes and greatly complicates the      probability calculations, requiring a different analytical approach.
+  
+- **Duplicate Cards**
+
+  The model assumes a standard 52-card deck containing one copy of each card. Variants with duplicated cards require modifying the deck state (CardCount) and the   corresponding probability calculations.
+  
+- **Cheating**
+
+  The model assumes an unbiased dealer and a fair distribution of cards. It does not account for cheating, card manipulation, or intentional deviations from        random dealing. Under such conditions, the predicted probabilities no longer accurately reflect the game state.
+
+- **Analytical Model**
+
+  This project implements an analytical probability model rather than an exhaustive enumeration of every possible game state. While this significantly reduces      computational complexity, the correctness of the results depends on the validity of the mathematical derivations and assumptions presented throughout the         documentation.
