@@ -61,6 +61,26 @@
 
   For reference, I have pasted screenshots of the code for you to crossreference,
 
+  ![Data](images/Data.png)
+
+  For reference, what each variable means here is as follows,
+
+  row - Opponents hand, Passes in data
+
+  ls_SortedRow - The distinct cards in the opponents hand (If hand is [K,K,Q] ls_SortedRow is [K,Q], stores what are the cards of the opponent
+
+  ls_Row - This stores the which position of the cards match in ls_SortedRow (For example, 1st card and 2nd card or only 3rd card)
+
+  ls_SuitHand - This stores what colours have been blocked.
+
+  ![Distinct Row](images/duplicate.png)
+
+  This for loop runs through the opponents Hands and finds the distinct cards that are present in the opponents hands, (this allows us the comparision process that occurs later to proceed more smoothly)
+
+  ![Find](images/match.png)
+
+  This for loop compares the sorted opponent hand and our hand and stores the position where OUR cards match
+
   
 </details>
 
