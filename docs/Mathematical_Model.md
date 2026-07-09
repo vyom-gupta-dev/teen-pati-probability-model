@@ -167,3 +167,84 @@ For an Independent event,
   Thus, by the use of Arrangements and Conditional Probability, we have been able to derive the formulaes for the various Hand types that are possible (Excluding Suit). <br>
   These formulas have been exactly applied in the Calc.py module in the src folder for exactly the same folder.
 </details>
+
+### Suit Probability
+
+<details>
+  <summary>
+    This section deals with obtaining the probability of a hand being coloured [ColourWeight()]
+  </summary>
+
+  As explained in the README ideas, Instead treating every possible suit arrangement as a unique hand, we separate the rank configuration from the suit configuration and treat "being a Colour" as an independent state evaluated afterwards.
+
+  The maths behind this idea is as follows,
+
+    P(Hand*Suit) = P(Hand|Suit) * P(Suit)
+    Where P(Hand|Suit) represents the probability of obtaining the hand for a given suit (As discussed in Hand Porbability)
+    and P(Suit*Hand) represents the probability of obtaining that particular hand in that particular condition of whether it is not a colour
+
+  Even within the different possiblities of suit hands possibles (Like [Club,Club,Spade] or [Spade,Heart,Club] which are just a few examples]
+
+  We are only intrested in one special set - Colour = {[Club,Club,Club] , [Spade,Spade,Spade] , [Diamond,Diamond,Diamond] , [Heart,Heart,Heart]}
+
+  This is because we only care about one state - That is, all the suits are of the same type which constitutes a colour, all the remaining combinations are irrelevant to us. 
+
+  Thus, P(Suit*Hand) is simply
+
+    P(Suit) = P(Colour) if we want the hand to be a colour
+    P(Suit) = P'(Colour) if we DO NOT want it to be a colour, 
+
+    Where P'(Colour) = 1 - P(Colour)
+
+  Now to compute P(suit) we must know,
+  - What elements in colour are possible to be formed (This is handled in the EdgeCorrections() function that is explored in the doc Edge Correction)
+  - What are total possibilities
+
+  For the total possibilities, we extract the total number of cards for each constituent element in the Hand,
+
+  The number of these cards tells us what possible suits that element can have,
+
+    If there are 4 cards of 2 in the deck then the 2 can be:
+    A 2 of hearts
+    A 2 of diamonds
+    A 2 of clubs
+    A 2 of spades
+
+    Now if lets say in our hand we have the 3 of spades,
+    Then the number of cards of 3 in the deck are: 3,
+    3 of clubs
+    3 of diamonds
+    3 of hearts
+
+  Now the total possibilities is simply the combination of all these suits,
+
+  Which, is simply:
+
+    No. of Suits of Card 1 * No. of Suits for Card 2* No. of Suits for Card 3
+    For example:
+    We require total suit hand possibilities for [2,5,6]
+    While we posses [5(Diamonds),5(Clubs),5(Hearts)]
+
+    So for,
+    2 - 4 Cards (All suits)
+    6 - 4 cards (All suits)
+    5 - 1 card (Only Spades)
+
+    So total possibilities is just = 4*1*4 = 16
+
+  The remaining challenge lies in determining which Colour states are still feasible.
+
+  This is because of how our hand, **Blocks certain colours from being possible**
+
+    Take the same example,
+    You might think that there might be 4 colours possible for [2,5,6] since there are 4 cards for 2 and 4 cards for 5,
+    But in reality, only one colour is possible - 2 of Spades, 5 of Spades and 6 of Spades.
+    The other colours like hearts, diamonds and clubs are blocked because of the cards in our hand.
+    Which have been removed from the deck and thus, such colours are impossible to be formed.
+
+  The exact algorithm of how we determine this using code is explored more deeply in the Edge Corrections document.
+
+  The implementation of this feasibility check is contained within EdgeCorrections(), which determines which Colour states remain possible after accounting for the cards removed from the deck.
+</details>
+
+---
